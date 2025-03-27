@@ -1,0 +1,161 @@
+import random
+
+def intro():
+    global name
+    print("Hello there! I am X, your opponent today. I will guide you in playing this brilliant game of 'Hand-Cricket'")
+    print("Since this is being played on a computer I realised that it would be foolish to implement a head-tail system. Instead, we will follow a new method")
+    print("Choose a number between 1 and 0. If our numbers match I get to choose and if our numbers don't match then you get to choose.")
+    print("After the toss, the game continues like a normal hand cricket match. If you're batting your runs will get added until you get out. Same rule for me.")
+    print("There are unlimited overs.")
+    print("You will get only 1 wicket.")
+    print("In case of a superover the player who achieves the runs in the lowest number of balls will be declared as the winner")
+    print("If the balls are same as well then it will be declared as a 'TIE'")
+    print("Good Luck!")
+
+def toss():
+    global c1
+    global c_user
+    print("Time for the toss.")
+    t=int(input("Choose a number between 1 and 0 - "))
+    t1=random.randint(0,1)
+    print("I choose - ",t1)
+    if t==t1:
+        print("I win the toss")
+        c1=random.randint(0,1)
+        if c1==0:
+            print("I choose to bat first")
+        else:
+            print("I choose to bowl first")
+    else:
+        print("You win the toss.")
+        while True:
+            c_user=input("Do you choose to bowl or bat first - ")
+            c_user=c_user.lower()
+            if c_user=="bowl":
+                print("You are bowling first")
+                c1=1
+                break
+            elif c_user=="bat":
+                print("You are batting first")
+                c1=0
+                break
+            else:
+                print("Wrong choice. Pick again.")
+                continue
+
+def match():
+    print("Match starts")
+    runs=0
+    r1=0
+    global k1
+    k1=0
+    global target
+    global i
+    if c1==0:
+        for i in range(0,10000):
+            inp=int(input("Your turn: "))
+            comp=random.randint(1,6)
+            print("My choice",comp)
+            runs=runs+inp
+            r1=runs-inp
+            k1=k1+1
+            if comp==inp:
+                print("I am out! Match over")
+                break
+            else:
+                continue
+        print("***SCORECARD***")
+        print("Runs scored -",r1)
+        print("Balls bowled",k1)
+        target=r1+1
+        print("Target - ",target)
+    elif c1==1:
+        for i in range(0,10000):
+            inp=int(input("Your turn: "))
+            comp=random.randint(1,6)
+            print("My choice",comp)
+            runs=runs+inp
+            r1=runs-inp
+            k1=k1+1
+            if comp==inp:
+                print("You are out! Match over")
+                break
+            else:
+                continue
+        print("***SCORECARD***")
+        print("Runs scored -",r1)
+        print("Balls bowled",k1)
+        target=r1+1
+        print("Target - ",target)
+
+def chase():
+    runs=0
+    r1=0
+    k2=0
+    if c1==0:
+        for j in range(0,10000):
+            inp=int(input("Your turn: "))
+            comp=random.randint(1,6)
+            print("My choice",comp)
+            runs=runs+inp
+            r1=runs-inp
+            k2=k2+1
+            if comp==inp:
+                print("You are out! Match over")
+                break
+            else:
+                continue
+        print("***SCORECARD***")
+        print("Runs scored -",r1)
+        print("Bowls bowled",k2)
+        if r1>target:
+            print("YOU WIN")
+        elif r1<target:
+            print("I WIN")
+        elif r1==target:
+            if k2>k1:
+                print("I WIN")
+            elif k2<k1:
+                print("YOU WIN")
+            elif k1==k2:
+                print("TIE")
+    elif c1==1:
+        for j in range(0,10000):
+            inp=int(input("Your turn: "))
+            comp=random.randint(1,6)
+            print("My choice",comp)
+            runs=runs+inp
+            r1=runs-inp
+            k2=k2+1
+            if comp==inp or r1>target:
+                print("Match over")
+                break
+            else:
+                continue
+        print("***SCORECARD***")
+        print("Runs scored -",r1)
+        print("Bowls bowled",k2)
+        if r1>target:
+            print("I WIN")
+        if r1<target:
+            print("YOU WIN")
+        elif r1==target:
+            if k2>k1:
+                print("YOU WIN")
+            elif k2<k1:
+                print("I WIN")
+            elif k1==k2:
+                print("TIE")
+            
+intro()
+toss()
+match()
+chase()
+
+
+
+
+    
+            
+            
+            
