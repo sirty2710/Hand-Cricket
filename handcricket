@@ -1,7 +1,7 @@
 import random
 
 def intro():
-    print("Hello there! I am X, your opponent today. I will guide you in playing this brilliant game of 'Hand-Cricket'")
+    print("Hello there! I am Puchu, your opponent today. I will guide you in playing this brilliant game of 'Hand-Cricket'")
     print("Since this is being played on a computer I realised that it would be foolish to implement a head-tail system. Instead, we will follow a new method")
     print("Choose a number between 1 and 0. If our numbers match I get to choose and if our numbers don't match then you get to choose.")
     print("After the toss, the game continues like a normal hand cricket match. If you're batting your runs will get added until you get out. Same rule for me.")
@@ -14,36 +14,36 @@ def intro():
 def toss():
     global c1
     global c_user
-    print("Time for the toss.")
+    print("Time for the toss. \n")
     t=int(input("Choose a number between 1 and 0 - "))
     t1=random.randint(0,1)
-    print("I choose - ",t1)
+    print("\n I choose - ",t1)
     if t==t1:
-        print("I win the toss")
+        print("\n I win the toss \n")
         c1=random.randint(0,1)
         if c1==0:
-            print("I choose to bat first")
+            print("I choose to bat first \n")
         else:
-            print("I choose to bowl first")
-    else:
-        print("You win the toss.")
+            print("I choose to bowl first \n")
+    else: 
+        print("\n You win the toss. \n")
         while True:
             c_user=input("Do you choose to bowl or bat first - ")
             c_user=c_user.lower()
             if c_user=="bowl":
-                print("You are bowling first")
+                print("You are bowling first \n")
                 c1=1
                 break
             elif c_user=="bat":
-                print("You are batting first")
+                print("You are batting first \n")
                 c1=0
                 break
             else:
-                print("Wrong choice. Pick again.")
+                print("Wrong choice. Pick again. \n")
                 continue
 
 def match():
-    print("Match starts")
+    print("Match starts \n")
     runs=0
     r1=0
     global k1
@@ -59,7 +59,7 @@ def match():
             r1=runs-inp
             k1=k1+1
             if comp==inp:
-                print("I am out! Match over")
+                print("\n I am out! \n")
                 break
             else:
                 continue
@@ -77,7 +77,7 @@ def match():
             r1=runs-inp
             k1=k1+1
             if comp==inp:
-                print("You are out! Match over")
+                print("\n You are out! \n")
                 break
             else:
                 continue
@@ -88,6 +88,7 @@ def match():
         print("Target - ",target)
 
 def chase():
+    print("\n CHASE STARTS \n")
     runs=0
     r1=0
     k2=0
@@ -97,10 +98,10 @@ def chase():
             comp=random.randint(1,6)
             print("My choice",comp)
             runs=runs+inp
-            r1=runs-inp
+            r1=runs
             k2=k2+1
-            if comp==inp:
-                print("You are out! Match over")
+            if comp==inp or r1>=target:
+                print("\n Match over \n")
                 break
             else:
                 continue
@@ -126,8 +127,8 @@ def chase():
             runs=runs+inp
             r1=runs-inp
             k2=k2+1
-            if comp==inp or r1>target:
-                print("Match over")
+            if comp==inp or r1>=target:
+                print("\n Match over \n")
                 break
             else:
                 continue
