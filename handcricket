@@ -1,7 +1,7 @@
 import random
 
 def intro():
-    print("Hello there! I am Puchu, your opponent today. I will guide you in playing this brilliant game of 'Hand-Cricket'")
+    print("Hello there! I am X, your opponent today. I will guide you in playing this brilliant game of 'Hand-Cricket'")
     print("Since this is being played on a computer I realised that it would be foolish to implement a head-tail system. Instead, we will follow a new method")
     print("Choose a number between 1 and 0. If our numbers match I get to choose and if our numbers don't match then you get to choose.")
     print("After the toss, the game continues like a normal hand cricket match. If you're batting your runs will get added until you get out. Same rule for me.")
